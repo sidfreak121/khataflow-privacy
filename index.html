@@ -1,186 +1,91 @@
-import React from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-} from "react-native";
-import { router } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useColors } from "@/hooks/useColors";
-import { fonts } from "@/constants/typography";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KhataFlow — Privacy Policy</title>
+<style>
+  :root { --green: #0d5c3a; --ink: #1a1a1a; --muted: #555; --bg: #f5f7f5; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  header { background: var(--green); color: #fff; padding: 28px 20px; }
+  header h1 { margin: 0; font-size: 26px; }
+  main { max-width: 780px; margin: 0 auto; padding: 28px 20px 80px; background: #fff; }
+  h2 { color: var(--green); font-size: 18px; margin-top: 32px; margin-bottom: 8px; }
+  p, li { font-size: 15px; color: var(--ink); }
+  .updated { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  ul { padding-left: 20px; }
+  a { color: var(--green); }
+  strong { color: var(--ink); }
+  footer { text-align: center; font-size: 13px; color: var(--muted); padding: 20px; }
+</style>
+</head>
+<body>
+<header><h1>KhataFlow — Privacy Policy</h1></header>
+<main>
+<p class="updated">Last updated: April 16, 2026</p>
 
-const LAST_UPDATED = "April 16, 2026";
+<h2>1. Introduction</h2>
+<p>KhataFlow ("we", "our", or "us") is a personal finance app designed for users in Pakistan. This Privacy Policy explains what information we collect, how we use it, and the choices you have.</p>
+<p>By using KhataFlow you agree to the practices described in this policy. If you do not agree, please stop using the app.</p>
 
-export default function PrivacyPolicyScreen() {
-  const colors = useColors();
-  const insets = useSafeAreaInsets();
+<h2>2. Information We Collect</h2>
+<p><strong>Information you provide directly:</strong></p>
+<ul>
+  <li>Name and email address (when you create an account)</li>
+  <li>Financial records you enter — account balances, transactions, khata entries, split bills</li>
+  <li>Passwords (stored securely by Firebase; we never see them)</li>
+</ul>
+<p><strong>Information collected automatically:</strong></p>
+<ul>
+  <li>App crash reports and error logs (device type, OS version, error trace)</li>
+  <li>We do NOT collect location, contacts, photos, or microphone data.</li>
+</ul>
 
-  return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* Header */}
-      <View
-        style={[
-          styles.header,
-          { paddingTop: insets.top + 8, borderBottomColor: colors.border },
-        ]}
-      >
-        <Pressable onPress={() => router.back()} style={styles.backBtn}>
-          <Ionicons name="chevron-back" size={24} color={colors.foreground} />
-        </Pressable>
-        <Text style={[styles.headerTitle, { color: colors.foreground }]}>
-          Privacy Policy
-        </Text>
-        <View style={{ width: 40 }} />
-      </View>
+<h2>3. How We Use Your Information</h2>
+<ul>
+  <li>To provide and sync the KhataFlow service across your devices</li>
+  <li>To restore your data when you reinstall or switch devices</li>
+  <li>To improve app stability through anonymised crash reports</li>
+</ul>
+<p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
 
-      <ScrollView
-        contentContainerStyle={[
-          styles.content,
-          { paddingBottom: insets.bottom + 40 },
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        <Text style={[styles.updated, { color: colors.mutedForeground }]}>
-          Last updated: {LAST_UPDATED}
-        </Text>
+<h2>4. Data Storage</h2>
+<p>Your data is stored in <strong>Google Firebase</strong> (Firestore and Firebase Authentication), operated by Google LLC. Google may process your data in accordance with their own privacy policy at <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>.</p>
+<p>Financial records you enter are stored:</p>
+<ul>
+  <li>Locally on your device (AsyncStorage) for offline access</li>
+  <li>In Firebase Firestore (cloud) when you are signed in</li>
+</ul>
 
-        <Section title="1. Introduction" colors={colors}>
-          KhataFlow ("we", "our", or "us") is a personal finance app designed for
-          users in Pakistan. This Privacy Policy explains what information we
-          collect, how we use it, and the choices you have.{"\n\n"}
-          By using KhataFlow you agree to the practices described in this policy.
-          If you do not agree, please stop using the app.
-        </Section>
+<h2>5. Data Security</h2>
+<p>We implement industry-standard security measures:</p>
+<ul>
+  <li>All data in transit is encrypted via HTTPS/TLS</li>
+  <li>Firebase Firestore security rules ensure each user can only access their own data</li>
+  <li>Passwords are hashed and managed by Firebase Authentication — we never store raw passwords</li>
+</ul>
+<p>No method of transmission over the internet is 100% secure. We strive to protect your data but cannot guarantee absolute security.</p>
 
-        <Section title="2. Information We Collect" colors={colors}>
-          <Bold colors={colors}>Information you provide directly:</Bold>
-          {"\n"}• Name and email address (when you create an account){"\n"}
-          • Financial records you enter — account balances, transactions, khata
-          entries, split bills{"\n"}
-          • Passwords (stored securely by Firebase; we never see them){"\n\n"}
-          <Bold colors={colors}>Information collected automatically:</Bold>
-          {"\n"}• App crash reports and error logs (device type, OS version, error
-          trace){"\n"}
-          • We do NOT collect location, contacts, photos, or microphone data.
-        </Section>
+<h2>6. Your Rights</h2>
+<p>You may at any time:</p>
+<ul>
+  <li>Access or export your data from within the app</li>
+  <li>Delete your account and all associated data by contacting us (see Section 9)</li>
+  <li>Use the app in offline mode without creating an account — your data then stays only on your device</li>
+</ul>
+<p>After account deletion, your data is removed from Firebase within 30 days.</p>
 
-        <Section title="3. How We Use Your Information" colors={colors}>
-          • To provide and sync the KhataFlow service across your devices{"\n"}
-          • To restore your data when you reinstall or switch devices{"\n"}
-          • To improve app stability through anonymised crash reports{"\n\n"}
-          We do not sell, rent, or share your personal information with third
-          parties for marketing purposes.
-        </Section>
+<h2>7. Children's Privacy</h2>
+<p>KhataFlow is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has provided us information, please contact us and we will delete it promptly.</p>
 
-        <Section title="4. Data Storage & Third-Party Services" colors={colors}>
-          Your data is stored in <Bold colors={colors}>Google Firebase</Bold>{" "}
-          (Firestore and Firebase Authentication), operated by Google LLC. Google
-          may process your data in accordance with their own privacy policy at
-          https://policies.google.com/privacy.{"\n\n"}
-          Financial records you enter are stored:{"\n"}
-          • Locally on your device (AsyncStorage) for offline access{"\n"}
-          • In Firebase Firestore (cloud) when you are signed in
-        </Section>
+<h2>8. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date above. Continued use of the app after changes constitutes your acceptance of the updated policy.</p>
 
-        <Section title="5. Data Security" colors={colors}>
-          We implement industry-standard security measures:{"\n"}
-          • All data in transit is encrypted via HTTPS/TLS{"\n"}
-          • Firebase Firestore security rules ensure each user can only access
-          their own data{"\n"}
-          • Passwords are hashed and managed by Firebase Authentication — we
-          never store raw passwords{"\n\n"}
-          No method of transmission over the internet is 100% secure. We strive
-          to protect your data but cannot guarantee absolute security.
-        </Section>
-
-        <Section title="6. Your Rights" colors={colors}>
-          You may at any time:{"\n"}
-          • Access or export your data from within the app{"\n"}
-          • Delete your account and all associated data by contacting us (see
-          Section 9){"\n"}
-          • Use the app in offline mode without creating an account — your data
-          then stays only on your device{"\n\n"}
-          After account deletion, your data is removed from Firebase within 30
-          days.
-        </Section>
-
-        <Section title="7. Children's Privacy" colors={colors}>
-          KhataFlow is not directed at children under 13. We do not knowingly
-          collect personal information from children. If you believe a child has
-          provided us information, please contact us and we will delete it
-          promptly.
-        </Section>
-
-        <Section title="8. Changes to This Policy" colors={colors}>
-          We may update this Privacy Policy from time to time. We will notify you
-          of material changes by updating the "Last updated" date above. Continued
-          use of the app after changes constitutes your acceptance of the updated
-          policy.
-        </Section>
-
-        <Section title="9. Contact Us" colors={colors}>
-          If you have questions about this Privacy Policy or want to request data
-          deletion, please contact us at:{"\n\n"}
-          <Bold colors={colors}>Email:</Bold> privacy@khataflow.pk{"\n"}
-          <Bold colors={colors}>App:</Bold> KhataFlow — Pakistan
-        </Section>
-      </ScrollView>
-    </View>
-  );
-}
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-
-function Section({
-  title,
-  children,
-  colors,
-}: {
-  title: string;
-  children: React.ReactNode;
-  colors: any;
-}) {
-  return (
-    <View style={styles.section}>
-      <Text style={[styles.sectionTitle, { color: colors.foreground }]}>
-        {title}
-      </Text>
-      <Text style={[styles.body, { color: colors.mutedForeground }]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function Bold({ children, colors }: { children: React.ReactNode; colors: any }) {
-  return (
-    <Text style={[styles.bold, { color: colors.foreground }]}>{children}</Text>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: { flex: 1 },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingBottom: 12,
-    borderBottomWidth: 1,
-  },
-  backBtn: { width: 40, height: 40, alignItems: "center", justifyContent: "center" },
-  headerTitle: { fontSize: 18, fontFamily: fonts.displaySemiBold },
-  content: { paddingHorizontal: 20, paddingTop: 20 },
-  updated: { fontSize: 13, fontFamily: fonts.bodyRegular, marginBottom: 24 },
-  section: { marginBottom: 28 },
-  sectionTitle: {
-    fontSize: 16,
-    fontFamily: fonts.bodySemiBold,
-    marginBottom: 10,
-  },
-  body: { fontSize: 14, fontFamily: fonts.bodyRegular, lineHeight: 22 },
-  bold: { fontFamily: fonts.bodySemiBold },
-});
+<h2>9. Contact Us</h2>
+<p>If you have questions about this Privacy Policy or want to request data deletion, please contact us at:</p>
+<p>Email: <a href="mailto:privacy@khataflow.pk">privacy@khataflow.pk</a><br/>App: KhataFlow — Pakistan</p>
+</main>
+<footer>&copy; 2026 KhataFlow</footer>
+</body>
+</html>
